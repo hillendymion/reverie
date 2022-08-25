@@ -1,7 +1,7 @@
 extends Camera2D
 
-onready var TopLeft = $TopLeft
-onready var BottomRight = $BottomRight
+onready var TopLeft = $limits/TopLeft
+onready var BottomRight = $limits/BottomRight
 
 
 #set contraints.

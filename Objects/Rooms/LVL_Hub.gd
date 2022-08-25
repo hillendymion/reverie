@@ -8,4 +8,5 @@ func _ready() -> void:
 		var enter_node = find_node(stats.Door_Name)
 		if enter_node:
 			$Plyr.global_position = enter_node.global_position
+			$Cam2D.global_position = $Plyr.global_position
 			#trying this with position2d
