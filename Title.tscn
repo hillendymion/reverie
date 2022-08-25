@@ -1,0 +1,23 @@
+[gd_scene format=2]
+
+[node name="Title" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 325.0
+margin_bottom = 189.0
+color = Color( 0.0509804, 0.0823529, 0.152941, 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_right = 316.0
+margin_bottom = 65.0
+text = "Untitled Dream RPG"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="."]
+margin_top = 104.0
+margin_right = 325.0
+margin_bottom = 141.0
+text = "Press Start // Enter"
+align = 1
+valign = 1
