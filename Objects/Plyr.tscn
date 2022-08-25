@@ -1,0 +1,613 @@
+[gd_scene load_steps=39 format=2]
+
+[ext_resource path="res://SRC/Plyr.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/Sprites/Vivi_Reverie_V2.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/Sprites/MediumShadow.png" type="Texture" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 4.0
+height = 8.0
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 4.0
+height = 4.0
+
+[sub_resource type="Animation" id=9]
+resource_name = "Fall"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plyr_SP:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 7, 8 ]
+}
+
+[sub_resource type="Animation" id=33]
+resource_name = "Hurt_L"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plyr_SP:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 29 ]
+}
+
+[sub_resource type="Animation" id=34]
+resource_name = "Hurt_R"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plyr_SP:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 30 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plyr_SP:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Plyr_SP:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Talkbox/P_Target:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 8 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Talkbox:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -8, 0 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Stand_D"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plyr_SP:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Talkbox/P_Target:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 16 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Talkbox:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 8 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "Stand_L"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plyr_SP:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 39 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Talkbox/P_Target:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -8, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Talkbox:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -8, 0 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "Stand_R"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plyr_SP:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 24 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Talkbox/P_Target:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 8, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Talkbox:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 8, 0 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "Stand_U"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plyr_SP:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 12 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Talkbox/P_Target:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -16 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Talkbox:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -16 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Walk_D"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plyr_SP:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 2 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Talkbox/P_Target:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 8 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Talkbox:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 8 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Walk_L"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plyr_SP:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 27, 26, 25, 26 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Talkbox/P_Target:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 8, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Talkbox:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 8, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Walk_R"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plyr_SP:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 36, 37, 38, 37 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Talkbox/P_Target:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -8, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Talkbox:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -8, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Walk_U"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plyr_SP:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 13, 14, 15, 14 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Talkbox/P_Target:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -21 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Talkbox:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -16 ) ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=35]
+animation = "Fall"
+
+[sub_resource type="AnimationNodeBlendTree" id=28]
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "Stand_L"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "Stand_R"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "Stand_D"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "Stand_U"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=18]
+auto_triangles = false
+blend_point_0/node = SubResource( 14 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 15 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 16 )
+blend_point_2/pos = Vector2( 0, 1 )
+blend_point_3/node = SubResource( 17 )
+blend_point_3/pos = Vector2( 0, -1 )
+triangles = PoolIntArray( 0, 2, 3, 1, 2, 3 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=24]
+animation = "Walk_R"
+
+[sub_resource type="AnimationNodeAnimation" id=25]
+animation = "Walk_L"
+
+[sub_resource type="AnimationNodeAnimation" id=26]
+animation = "Walk_D"
+
+[sub_resource type="AnimationNodeAnimation" id=27]
+animation = "Walk_U"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=19]
+blend_point_0/node = SubResource( 24 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 25 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 26 )
+blend_point_2/pos = Vector2( 0, 1.1 )
+blend_point_3/node = SubResource( 27 )
+blend_point_3/pos = Vector2( 0, -1.1 )
+min_space = Vector2( -1.1, -1.1 )
+max_space = Vector2( 1.2, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=29]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id=22]
+states/Fall/node = SubResource( 35 )
+states/Fall/position = Vector2( 308, 193 )
+states/Ouch/node = SubResource( 28 )
+states/Ouch/position = Vector2( 119, 203 )
+states/Standing/node = SubResource( 18 )
+states/Standing/position = Vector2( 173, 73 )
+states/Walking/node = SubResource( 19 )
+states/Walking/position = Vector2( 394, 73 )
+transitions = [ "Standing", "Walking", SubResource( 20 ), "Walking", "Standing", SubResource( 21 ), "Standing", "Ouch", SubResource( 29 ), "Ouch", "Standing", SubResource( 30 ), "Standing", "Fall", SubResource( 36 ), "Fall", "Standing", SubResource( 37 ) ]
+start_node = "Standing"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=23]
+
+[sub_resource type="CircleShape2D" id=38]
+radius = 2.0
+
+[node name="Plyr" type="KinematicBody2D"]
+collision_layer = 4
+script = ExtResource( 1 )
+
+[node name="Plyr_SP" type="Sprite" parent="."]
+position = Vector2( 0, -9 )
+z_index = 2
+z_as_relative = false
+texture = ExtResource( 2 )
+flip_h = true
+hframes = 12
+vframes = 9
+frame = 27
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="SP_Shadow" type="Sprite" parent="."]
+position = Vector2( 0, 5 )
+z_index = 1
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -4 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 48
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+modulate = Color( 0.635294, 0.215686, 0.215686, 1 )
+shape = SubResource( 2 )
+
+[node name="Iframe_Timer" type="Timer" parent="Hurtbox"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+anims/Fall = SubResource( 9 )
+anims/Hurt_L = SubResource( 33 )
+anims/Hurt_R = SubResource( 34 )
+anims/RESET = SubResource( 4 )
+anims/Stand_D = SubResource( 10 )
+anims/Stand_L = SubResource( 11 )
+anims/Stand_R = SubResource( 12 )
+anims/Stand_U = SubResource( 13 )
+anims/Walk_D = SubResource( 5 )
+anims/Walk_L = SubResource( 6 )
+anims/Walk_R = SubResource( 7 )
+anims/Walk_U = SubResource( 8 )
+
+[node name="Cooldown" type="Timer" parent="."]
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 22 )
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource( 23 )
+parameters/Standing/blend_position = Vector2( 0, 0 )
+parameters/Walking/blend_position = Vector2( 0, 0 )
+
+[node name="Talkbox" type="Area2D" parent="."]
+position = Vector2( 8, 0 )
+collision_layer = 0
+collision_mask = 128
+
+[node name="P_Target" type="Position2D" parent="Talkbox"]
+light_mask = 0
+z_index = 10
+z_as_relative = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Talkbox"]
+modulate = Color( 0.611765, 0.176471, 0.431373, 1 )
+shape = SubResource( 38 )
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_Cooldown_timeout"]
+[connection signal="area_entered" from="Talkbox" to="." method="_on_Talkbox_area_entered"]
