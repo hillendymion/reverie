@@ -38,8 +38,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	Move_State(delta) #in case any tree states.
-	if cooldown.time_left > 0:
-		print(cooldown.time_left)
+	#if cooldown.time_left > 0:
+	#	print(cooldown.time_left)
 
 func Move_State(delta):
 	#movement here
@@ -89,7 +89,7 @@ func shoot():
 		print("fire")
 		var bullet = null
 		fireready = false
-		cooldown.start(stats.Rate /10) #not sure if I should just use rate here, or grab it dirctly from the other.
+		cooldown.start(10/stats.Rate) #not sure if I should just use rate here, or grab it dirctly from the other.
 		#get correct bullet. Surely theres a better way to do this.
 		if stats.Weapon == "waterbullet":
 			bullet = waterbullet.instance() 

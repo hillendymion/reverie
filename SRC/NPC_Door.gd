@@ -6,7 +6,6 @@ onready var OpenC = $Open
 export(String, FILE, "*.tscn, *.scn") var Exit 
 export(String) var Entrance
 #theres got to be a less clunky way to do this.
-var active = false
 
 
 
@@ -23,11 +22,11 @@ func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if !Exit:
 		print("No Scene Placed")	
 	else:
-		get_tree().change_scene(Exit) #I'm not sure the difference between change scene, and change scene to.
-
-
+		var Error = get_tree().change_scene(Exit) #I'm not sure the difference between change scene, and change scene to.
+		if Error != OK:
+			print("something went wrong. Door got borked")
+		
 
 func _on_NPC_Door_body_entered(body: Node) -> void:
 	print("connected")
-	active = true
 

@@ -8,7 +8,9 @@ var Attack = 2 setget setAtt, getAtt
 var Defense = 1 setget setDef, getDef
 var Rate = 5 setget setRate, getRate #fire speed mayb I should apply this fractionally?
 var Weapon = "waterbullet" #Will have to get a list of these.
-
+var Weapons_Available = [false,false,false,false,false] # 5 for now
+var Weapons = ["Base", "waterbullet", "Firebullet", "Wind Bullet", "InkBullet"]#I'll likely combine this and the available one later.
+var Coins = 0 setget setCoins, getCoins
 #For doors
 var Door_Name = null setget setDoor, getDoor
 
@@ -16,34 +18,39 @@ var Door_Name = null setget setDoor, getDoor
 var Boss_FireHP = 800 setget setFireBossHP, getFireBossHP
 var Boss_IceHP = 1000 setget setIceBossHP, getIceBossHP
 
+
 #Setter getters.
 func changeHP(val):
-	HP = val
-	if HP > MaxHP:
-		HP = MaxHP
-	elif HP <= 0:
+	HP = min(val, MaxHP)
+	#maybe emit  signal for changing
+	if HP <= 0:
 		emit_signal("no_HP")
 		Game_Over()
 func getHP():
 	return HP
 func setAtt(val):
-	Attack = val
+	Attack = int(val)
 func getAtt():
 	return Attack
 func setDef(val):
-	Defense = val
+	Defense = int(val)
 func getDef():
 	return Defense
 func setWalkSpd(val):
 	Walk_Spd = val
 func getWalkSpd():
 	return Walk_Spd
+func setRate(val):
+	Rate = int(val) #right now lower rate means faster. Should revamp this. maybe with a fraction
 func getRate():
 	return Rate
-func setRate(val):
-	Rate = val
+func setCoins(val):
+	Coins = int(min(val, 999)) #arbitrary for now.
+	if Coins < 0: Coins = 0
+func getCoins():
+	return(Coins)
 
-#Doors. 
+#Doors. This sets the position of the player when entering a scene/level.
 func setDoor(val):
 	#For now, just set if at Eter1, Enter2, Enter3, etc.
 	Door_Name = val
