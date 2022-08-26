@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Graphics/BG/SB_Generated1.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Backgrounds/ScrollBG1.tscn" type="PackedScene" id=2]
@@ -6,8 +6,6 @@
 [ext_resource path="res://Objects/Plyr.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/NPCs/NPC_Door.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/UI/Cam2D.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Objects/Enemies/En_Flame.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Objects/Enemies/En_Boss_Demon1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objects/Rooms/LVL_Hub.gd" type="Script" id=9]
 
 [node name="Hub_Spoke" type="Node2D"]
@@ -37,12 +35,10 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="En_Flame" parent="." instance=ExtResource( 7 )]
-position = Vector2( 211, 324 )
-
 [node name="NPC_Door" parent="." instance=ExtResource( 5 )]
 position = Vector2( 142, 301 )
-Exit = "res://Objects/Rooms/LVL_LG_Room1.tscn"
+Exit = "res://Objects/Rooms/LVL_LG_Beach.tscn"
+Entrance = "Enter1"
 
 [node name="NPC_Door2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 200, 40 )
@@ -51,16 +47,13 @@ Entrance = "Enter2"
 
 [node name="NPC_Door3" parent="." instance=ExtResource( 5 )]
 position = Vector2( 258, 300 )
-Exit = "res://Objects/Rooms/LVL_Hub.tscn"
-Entrance = "Enter2"
+Exit = "res://Objects/Rooms/LVL_LG_Snow.tscn"
+Entrance = "Enter1"
 
 [node name="NPC_Door4" parent="." instance=ExtResource( 5 )]
 position = Vector2( 201, 367 )
 Exit = "res://Objects/Rooms/LVL_Hub.tscn"
 Entrance = "Enter2"
-
-[node name="En_Boss_Demon1" parent="." instance=ExtResource( 8 )]
-position = Vector2( 275, 358 )
 
 [node name="TM_Floor" type="TileMap" parent="."]
 z_index = -1

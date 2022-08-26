@@ -68,4 +68,3 @@ shape = SubResource( 5 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="Open" to="." method="_on_NPC_Door_body_entered"]
-[connection signal="body_exited" from="Open" to="." method="_on_NPC_Door_body_exited"]
