@@ -596,7 +596,7 @@ parameters/Walking/blend_position = Vector2( 0, 0 )
 
 [node name="Talkbox" type="Area2D" parent="."]
 position = Vector2( 8, 0 )
-collision_layer = 0
+collision_layer = 4
 collision_mask = 128
 
 [node name="P_Target" type="Position2D" parent="Talkbox"]
@@ -608,6 +608,12 @@ z_as_relative = false
 modulate = Color( 0.611765, 0.176471, 0.431373, 1 )
 shape = SubResource( 38 )
 
+[node name="InteractBuffer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ShootBuffer" type="Timer" parent="."]
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_Cooldown_timeout"]
 [connection signal="area_entered" from="Talkbox" to="." method="_on_Talkbox_area_entered"]
+[connection signal="area_exited" from="Talkbox" to="." method="_on_Talkbox_area_exited"]
