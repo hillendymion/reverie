@@ -1,5 +1,6 @@
 extends Node2D
-
+#This is a persistant global variable holder. 
+#Contans player stats, dialogue, entrance settings. and other things talked between nodes.
 
 var HP = 8 setget changeHP, getHP
 var MaxHP = 8
@@ -8,11 +9,18 @@ var Attack = 2 setget setAtt, getAtt
 var Defense = 1 setget setDef, getDef
 var Rate = 5 setget setRate, getRate #fire speed mayb I should apply this fractionally?
 var Weapon = "waterbullet" #Will have to get a list of these.
-var Weapons_Available = [false,false,false,false,false] # 5 for now
-var Weapons = ["Base", "waterbullet", "Firebullet", "Wind Bullet", "InkBullet"]#I'll likely combine this and the available one later.
+
+#trying this with a dictionary.
+var Weapons = {"Arrow": false, "waterbullet": false, "Firebullet": false, "WindBullet":false, "InkBullet":false} setget setWeapons, getWeapons
+
 var Coins = 0 setget setCoins, getCoins
 #For doors
 var Door_Name = null setget setDoor, getDoor
+#For dialoge
+var Dialoguetext = "" #Its an array. Pulled from a json file.
+var mwinDelay = true setget setmwindelay
+#can arrays be export varabled?
+var Item_get = ""
 
 #BossHP
 var Boss_FireHP = 800 setget setFireBossHP, getFireBossHP
@@ -49,6 +57,13 @@ func setCoins(val):
 	if Coins < 0: Coins = 0
 func getCoins():
 	return(Coins)
+func setWeapons(val):
+	#setting this up to avoid invalid indexes.
+	Weapons = val
+func getWeapons():
+	return Weapons
+func setmwindelay(val):
+	mwinDelay = val
 
 #Doors. This sets the position of the player when entering a scene/level.
 func setDoor(val):

@@ -12,6 +12,8 @@ var rate = stats.getRate() #connect dammit.
 #var attack = stats.getAtt()
 var fireready = true
 var IsRunning = false
+var obtain = null
+var nearNPC = false
 
 onready var Hurtbox = $Hurtbox
 
@@ -23,8 +25,10 @@ onready var cooldown = $Cooldown #triggers based on rate.
 onready var hurtbox = $Hurtbox
 onready var P_Target = $Talkbox/P_Target
 onready var TalkBox = $Talkbox
+onready var InteractBuffer = $InteractBuffer
 
 const MENU = preload("res://Objects/Main_Menu.tscn")
+const MWin = preload("res://Objects/UI/MWindow.tscn")
  #do this for each 'bullet'
 const waterbullet = preload("res://Objects/Bullets/WaterBullet.tscn")
 #const SND_PlyrHurt = preload("res://Object/SND_PlayerHurt.tscn")
@@ -68,11 +72,22 @@ func Move_State(delta):
 	if Input.is_action_pressed("ui_shoot"):
 		#just testing for now.
 		#Might use this to fire a shot.
+		if nearNPC == false:
+			$ShootBuffer.start(.02)
+		else:
+			if stats.mwinDelay:
+				get_item(stats.Item_get)
+				var mwin = MWin.instance() #im not sure I need to var it. but sure.
+				get_parent().add_child(mwin)
+				stats.mwinDelay = false
+				InteractBuffer.start(.5)
+	if !$ShootBuffer.is_stopped():
+		print($ShootBuffer.time_left)
 		shoot()
 
 	if Input.is_action_pressed("ui_menu"):
 		#just testing for now.
-		#Might use this to fire a shot.
+		#Might use this to fire a shot.stat
 		menu()
 		
 	if Input.is_action_pressed("ui_cancel"):
@@ -80,6 +95,9 @@ func Move_State(delta):
 		IsRunning = true
 	if Input.is_action_just_released("ui_cancel"):
 		IsRunning = false
+
+
+		
 		
 func move(delta):
 	vel = move_and_slide(vel) #saving vel as value so as to read the previous val.
@@ -89,6 +107,7 @@ func shoot():
 		print("fire")
 		var bullet = null
 		fireready = false
+		$ShootBuffer.stop()
 		cooldown.start(10/stats.Rate) #not sure if I should just use rate here, or grab it dirctly from the other.
 		#get correct bullet. Surely theres a better way to do this.
 		if stats.Weapon == "waterbullet":
@@ -115,6 +134,7 @@ func _on_Cooldown_timeout() -> void:
 
 func _on_Hurtbox_area_entered(area: Area2D) -> void:
 	#enemy object hits player. ouch.
+	stats.HP -= 1 #(replace with enemy attack- stats.defense)
 	pass # Replace with function body.
 
 
@@ -122,4 +142,21 @@ func _on_Hurtbox_area_entered(area: Area2D) -> void:
 func _on_Talkbox_area_entered(area: Area2D) -> void:
 	#NPC enters talkbox area. 
 	print("npc here")
-	pass
+	nearNPC = true
+ 
+
+	
+func get_item(item):
+	#create for loop = PlayerStats.Weapons.length
+	#just trying to see if theres a match in the weapons dictionary.
+	if item != "" or item != null:
+		var key = Player_Stats.Weapons.keys()
+		print(key)
+		for i in stats.Weapons: #how to find number in indexes in dictionary?
+			if i == item: #invalid index my ass. okay, so i itself will return the key. weird.
+				stats.Weapons[i] = true
+		#okay, need to find the index, and set its value to true.
+
+
+func _on_Talkbox_area_exited(area: Area2D) -> void:
+	nearNPC = false
