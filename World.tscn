@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Objects/Rooms/LVL_Hub.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/NPCs/Coin_V1.tscn" type="PackedScene" id=2]
 
 [node name="World" type="Node2D"]
 __meta__ = {
@@ -9,3 +10,12 @@ __meta__ = {
 
 [node name="LVL_Hub" parent="." instance=ExtResource( 1 )]
 position = Vector2( -1, 2 )
+
+[node name="Coin" parent="." instance=ExtResource( 2 )]
+position = Vector2( 216, 136 )
+
+[node name="Coin2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 200, 160 )
+
+[node name="Coin3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 168, 160 )
