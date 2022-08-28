@@ -31,7 +31,14 @@ const MENU = preload("res://Objects/Main_Menu.tscn")
 const MWin = preload("res://Objects/UI/MWindow.tscn")
  #do this for each 'bullet'
 const waterbullet = preload("res://Objects/Bullets/WaterBullet.tscn")
+const FireBullet = preload("res://Objects/Bullets/Fire_Bullet.tscn")
+const ArrowBullet = preload("res://Objects/Bullets/WaterBullet.tscn") #replace with actual bullet
+const CandyBullet = preload("res://Objects/Bullets/WaterBullet.tscn") #replace with actual bullet
+const WindBullet = preload("res://Objects/Bullets/WaterBullet.tscn") #replace with actual bullet
 #const SND_PlyrHurt = preload("res://Object/SND_PlayerHurt.tscn")
+
+signal Player_Bullet_Fired(bullet, pos, direction)
+
 
 func _ready() -> void:
 	Player_Stats.connect("no_HP",self,"queue_free")
@@ -64,6 +71,7 @@ func Move_State(delta):
 			vel = vel.move_toward(inputVector*WALK_SPD, ACCEL*delta)
 		#print(inputVector, " Run: ",IsRunning)
 		#print("plyrXy: ",floor(self.position.x), " ", floor(self.position.y), "Ptarget: ", floor(P_Target.global_position.x), " Y: ", floor(P_Target.global_position.y))
+		#print("vel: "+str(vel))
 	else:
 		AnimationState.travel("Standing")
 		vel = vel.move_toward(Vector2.ZERO, FRICTION*delta)
@@ -85,10 +93,7 @@ func Move_State(delta):
 		print($ShootBuffer.time_left)
 		shoot()
 
-	if Input.is_action_pressed("ui_menu"):
-		#just testing for now.
-		#Might use this to fire a shot.stat
-		menu()
+
 		
 	if Input.is_action_pressed("ui_cancel"):
 		#not sure if this is the best key for this.
@@ -112,9 +117,20 @@ func shoot():
 		#get correct bullet. Surely theres a better way to do this.
 		if stats.Weapon == "waterbullet":
 			bullet = waterbullet.instance() 
+		elif stats.Weapon == "FireBullet":
+			bullet = FireBullet.instance();
+		elif stats.Weapon == "ArrowBullet":
+			bullet = ArrowBullet.instance(); #replace with bulet as they are made.
+		elif stats.Weapon == "CandyBullet":
+			bullet = CandyBullet.instance();
+		elif stats.Weapon == "WindBullet": #spread
+			bullet = WindBullet.instance();
 		#adds instance of bullet.
 		get_parent().add_child(bullet)
 		bullet.position = P_Target.global_position #this is awkward
+		bullet.rotation_degrees = rotation_degrees #trying this.
+		emit_signal("Player_Bullet_Fired", bullet, P_Target, vel)
+		#call deffered?
 		#For some reason Y_Sort offsets this really badly.
 		bullet.vel = P_Target.global_position - self.global_position
 	
@@ -160,3 +176,17 @@ func get_item(item):
 
 func _on_Talkbox_area_exited(area: Area2D) -> void:
 	nearNPC = false
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	#called once per event. I had no idea this event existed.
+		if Input.is_action_pressed("ui_menu"):
+		#just testing for now.
+		#Might use this to fire a shot.stat
+			menu()
+		if Input.is_action_just_released("ui_toggle"): 
+		#Check if any in the stats. weapons dictionary is true.
+		#get stats.Weapon. compare it to the Stats.weapon dictionary. Then Ge to the next one up the list (if true).
+			pass
+
+	

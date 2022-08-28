@@ -8,7 +8,7 @@ var Walk_Spd = 130 setget setWalkSpd, getWalkSpd
 var Attack = 2 setget setAtt, getAtt
 var Defense = 1 setget setDef, getDef
 var Rate = 5 setget setRate, getRate #fire speed mayb I should apply this fractionally?
-var Weapon = "waterbullet" #Will have to get a list of these.
+var Weapon = "waterbullet" #Active Weapon.
 
 #trying this with a dictionary.
 var Weapons = {"Arrow": false, "waterbullet": false, "Firebullet": false, "WindBullet":false, "InkBullet":false} setget setWeapons, getWeapons
@@ -17,7 +17,7 @@ var Coins = 0 setget setCoins, getCoins
 #For doors
 var Door_Name = null setget setDoor, getDoor
 #For dialoge
-var Dialoguetext = "" #Its an array. Pulled from a json file.
+var Dialoguetext = "" setget setDialog, getDialog#Its an array. Pulled from a json file.
 var mwinDelay = true setget setmwindelay
 #can arrays be export varabled?
 var Item_get = ""
@@ -71,7 +71,10 @@ func setDoor(val):
 	Door_Name = val
 func getDoor():
 	return Door_Name
-
+func setDialog(val):
+	Dialoguetext = val
+func getDialog():
+	return Dialoguetext
 
 func setIceBossHP(val):
 	Boss_IceHP = val
@@ -92,4 +95,5 @@ signal FireBossDead
 
 func Game_Over():
 	#move character to bedroom.
-	pass
+	Door_Name = "Enter3"
+	get_tree().change_scene("res://Objects/Rooms/LVL_Hub.tscn") #for now

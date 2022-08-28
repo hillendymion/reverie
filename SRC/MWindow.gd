@@ -7,17 +7,19 @@ onready var timer = $Timer
 onready var buffer = $buffer
 onready var audio = $AudioStreamPlayer
 export(float) var textspeed = 0.05 
-export var dialoguepath = "" #I could totally gab this from the npc and chain it from them.
+onready var dialoguepath = Player_Stats.Dialoguetext #I could totally gab this from the npc and chain it from them.
+#this was just an eport variable. 
 var dialog
 var phrasenum = 0
 var done = false #finished
 
 func _ready() -> void:
-	print("mwin created")
+	print("mwin created"+ str(Player_Stats.Dialoguetext))
 	timer.wait_time = textspeed
 	get_tree().paused = true
 	dialog = getDialog()
-	assert(dialog, "dialog missing")
+	#assert(dialog, "dialog missing")
+	print("From Mwin: "+str(dialog))
 	nextPhrase()
 	#textData = Player_Stats.DialogueText[0]
 	#convert json file on to readible.

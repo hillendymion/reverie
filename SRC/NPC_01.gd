@@ -4,7 +4,7 @@ extends KinematicBody2D
 onready var sprite = $Sprite
 onready var Talkarea = $TalkArea
 onready var stats = Player_Stats
-export var dialoguepath = "res://Dialog/NPC_Bala1.json" #default
+export var dialoguepath = "res://Dialog/" #default
 export var obtain = "waterbullet" #will handle obtaining items
 
 

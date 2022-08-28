@@ -12,7 +12,7 @@ onready var timer = $Timer
 #preload Boss hud
 
 func _ready() -> void:
-	if Player_Stats.Boss_IceHP >= 0: queue_free()
+	if Player_Stats.Boss_IceHP <= 0: queue_free()
 	Anim_Plyr.play("Idle")
 
 func _physics_process(_delta: float) -> void:
