@@ -27,7 +27,6 @@ animations = [ {
 [node name="MWindow" type="Control"]
 pause_mode = 2
 script = ExtResource( 3 )
-dialoguepath = "res://Dialog/NPC_Bala1.json"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

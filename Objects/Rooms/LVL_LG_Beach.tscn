@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Objects/UI/Cam2D.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Plyr.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Objects/Rooms/LVL_Hub.gd" type="Script" id=5]
 [ext_resource path="res://Objects/Enemies/En_Flame.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Enemies/En_Boss_Demon1.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objects/UI/Hud_Main.tscn" type="PackedScene" id=8]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 5 )
@@ -44,6 +45,8 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Hud_Main" parent="." instance=ExtResource( 8 )]
+
 [node name="En_Boss_Demon1" parent="." instance=ExtResource( 7 )]
 position = Vector2( 393, 148 )
 
@@ -55,10 +58,23 @@ Entrance = "Enter2"
 [node name="Enter1" type="Position2D" parent="."]
 position = Vector2( 107, 81 )
 
+[node name="Enter2" type="Position2D" parent="."]
+position = Vector2( 809, 59 )
+
 [node name="En_Flame" parent="." instance=ExtResource( 6 )]
 position = Vector2( 118, 360 )
 
 [node name="En_Flame2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 724, 530 )
+
+[node name="En_Flame3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 377, 380 )
+
+[node name="En_Flame4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 444, 397 )
+
+[node name="NPC_Door2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 808, 34 )
+Exit = "res://Objects/Rooms/LVL_Doggo_Room.tscn"
 
 [editable path="Cam2D"]

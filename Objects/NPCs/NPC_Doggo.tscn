@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://SRC/NPC_01.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/Sprites/Vivi_Reverie_V2.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 160, 64, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 144, 64, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 128, 64, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 176, 64, 16, 32 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 8.0
+height = 16.0
+
+[sub_resource type="CapsuleShape2D" id=7]
+
+[node name="NPC_Doggo" type="KinematicBody2D"]
+collision_layer = 128
+collision_mask = 149
+script = ExtResource( 1 )
+obtain = "WindBullet"
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 5 )
+frame = 2
+speed_scale = 0.2
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 6 )
+
+[node name="TalkArea" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TalkArea"]
+shape = SubResource( 7 )
+
+[connection signal="body_entered" from="TalkArea" to="." method="_on_TalkArea_body_entered"]

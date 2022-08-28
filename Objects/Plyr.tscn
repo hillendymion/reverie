@@ -586,6 +586,7 @@ anims/Walk_R = SubResource( 7 )
 anims/Walk_U = SubResource( 8 )
 
 [node name="Cooldown" type="Timer" parent="."]
+one_shot = true
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 22 )
@@ -612,6 +613,7 @@ shape = SubResource( 38 )
 one_shot = true
 
 [node name="ShootBuffer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_Cooldown_timeout"]

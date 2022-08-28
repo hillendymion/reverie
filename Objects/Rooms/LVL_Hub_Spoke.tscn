@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Graphics/BG/SB_Generated1.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Backgrounds/ScrollBG1.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Objects/Plyr.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/NPCs/NPC_Door.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/UI/Cam2D.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/UI/Hud_Main.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objects/Rooms/LVL_Hub.gd" type="Script" id=9]
 
 [node name="Hub_Spoke" type="Node2D"]
@@ -22,6 +23,8 @@ editor_draw_limits = true
 
 [node name="BottomRight" parent="Cam2D/limits" index="1"]
 position = Vector2( 375, 504 )
+
+[node name="Hud_Main" parent="." instance=ExtResource( 7 )]
 
 [node name="Plyr" parent="." instance=ExtResource( 4 )]
 position = Vector2( 202, 90 )

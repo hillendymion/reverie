@@ -1,0 +1,112 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Objects/UI/Main_Menu_Theme.tres" type="Theme" id=1]
+[ext_resource path="res://SRC/Hud_Main.gd" type="Script" id=2]
+
+[node name="Hud_Main" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 320.0
+margin_bottom = 18.0
+color = Color( 0.0470588, 0.105882, 0.180392, 0.701961 )
+
+[node name="HPStats" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 3.0
+margin_right = 72.0
+margin_bottom = 17.0
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 0.647059, 0.968627, 0.635294, 1 )
+custom_constants/line_spacing = 2
+custom_constants/shadow_as_outline = 1
+text = "hp/maxhp"
+
+[node name="Vweap" type="Label" parent="."]
+margin_left = 71.0
+margin_top = 3.0
+margin_right = 154.0
+margin_bottom = 17.0
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 0.941176, 0.780392, 0.768627, 1 )
+custom_constants/line_spacing = 2
+custom_constants/shadow_as_outline = 1
+text = "Weap: Watergun"
+
+[node name="RateM" type="Control" parent="."]
+margin_left = 203.0
+margin_top = 1.0
+margin_right = 310.0
+margin_bottom = 17.0
+
+[node name="RateMeterEmpty" type="ColorRect" parent="RateM"]
+anchor_left = 1.712
+anchor_right = 1.712
+margin_left = -136.184
+margin_top = 4.0
+margin_right = -70.184
+margin_bottom = 12.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="RateMeterfill" type="ColorRect" parent="RateM"]
+anchor_left = 1.712
+anchor_right = 1.712
+margin_left = -135.184
+margin_top = 5.0
+margin_right = -71.184
+margin_bottom = 11.0
+color = Color( 0.94902, 0.94902, 0.94902, 1 )
+
+[node name="Boss_MeterFire" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="BM_Title" type="Label" parent="Boss_MeterFire"]
+margin_left = 10.0
+margin_top = 196.0
+margin_right = 50.0
+margin_bottom = 210.0
+theme = ExtResource( 1 )
+text = "Boss:"
+
+[node name="Empty" type="ColorRect" parent="Boss_MeterFire"]
+margin_left = 9.0
+margin_top = 210.0
+margin_right = 309.0
+margin_bottom = 218.0
+color = Color( 0.0666667, 0, 0, 1 )
+
+[node name="BMFull" type="ColorRect" parent="Boss_MeterFire"]
+margin_left = 10.0
+margin_top = 211.0
+margin_right = 308.0
+margin_bottom = 217.0
+color = Color( 0.913725, 0.180392, 0.180392, 1 )
+
+[node name="Boss_MeterIce" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="BM_Title" type="Label" parent="Boss_MeterIce"]
+margin_left = 10.0
+margin_top = 196.0
+margin_right = 50.0
+margin_bottom = 210.0
+theme = ExtResource( 1 )
+text = "Boss:"
+
+[node name="Empty" type="ColorRect" parent="Boss_MeterIce"]
+margin_left = 9.0
+margin_top = 210.0
+margin_right = 309.0
+margin_bottom = 218.0
+color = Color( 0.0666667, 0, 0, 1 )
+
+[node name="BMFull" type="ColorRect" parent="Boss_MeterIce"]
+margin_left = 10.0
+margin_top = 211.0
+margin_right = 308.0
+margin_bottom = 217.0
+color = Color( 0.2, 0.188235, 0.627451, 1 )

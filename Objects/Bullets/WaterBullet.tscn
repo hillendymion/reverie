@@ -64,7 +64,6 @@ tracks/3/keys = {
 [sub_resource type="Animation" id=5]
 resource_name = "Squirt_D"
 length = 0.5
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -105,7 +104,6 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=6]
 resource_name = "Squirt_L"
 length = 0.5
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -146,7 +144,6 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=7]
 resource_name = "Squirt_R"
 length = 0.5
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -187,7 +184,6 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=4]
 resource_name = "Squirt_U"
 length = 0.5
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
