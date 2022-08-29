@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Graphics/BG/SB_Generated1.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Backgrounds/ScrollBG1.tscn" type="PackedScene" id=2]
@@ -8,9 +8,11 @@
 [ext_resource path="res://Objects/UI/Cam2D.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/UI/Hud_Main.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objects/Rooms/LVL_Hub.gd" type="Script" id=9]
+[ext_resource path="res://Objects/NPCs/NPC_Ion.tscn" type="PackedScene" id=10]
 
 [node name="Hub_Spoke" type="Node2D"]
 script = ExtResource( 9 )
+song = "res://Audio/Song/scifi_loop_3.ogg"
 
 [node name="Cam2D" parent="." instance=ExtResource( 6 )]
 position = Vector2( 202, 90 )
@@ -57,6 +59,10 @@ Entrance = "Enter1"
 position = Vector2( 201, 367 )
 Exit = "res://Objects/Rooms/LVL_Hub.tscn"
 Entrance = "Enter2"
+
+[node name="IonMan" parent="." instance=ExtResource( 10 )]
+position = Vector2( 199, 282 )
+dialoguepath = "res://Dialog/NPC_ION_01.json"
 
 [node name="TM_Floor" type="TileMap" parent="."]
 z_index = -1

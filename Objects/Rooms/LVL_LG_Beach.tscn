@@ -11,6 +11,7 @@
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 5 )
+song = "res://Audio/Song/Cave of Despair LOOP.ogg"
 
 [node name="Cam2D" parent="." instance=ExtResource( 1 )]
 position = Vector2( 254, 288 )

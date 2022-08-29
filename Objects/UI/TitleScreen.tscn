@@ -1,10 +1,20 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Objects/Backgrounds/ScrollBG1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Graphics/UI/ssj2022_bumper_sm.png" type="Texture" id=2]
 [ext_resource path="res://Objects/UI/Main_Menu_Theme.tres" type="Theme" id=3]
 [ext_resource path="res://SRC/TitleScreen.gd" type="Script" id=4]
 [ext_resource path="res://Graphics/Fonts/kongtext.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Audio/Song/scifi_loop_3.ogg" type="AudioStream" id=6]
+
+[sub_resource type="DynamicFont" id=3]
+size = 8
+outline_color = Color( 0.945098, 0.945098, 0.945098, 1 )
+extra_spacing_char = 1
+font_data = ExtResource( 5 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -61,17 +71,11 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="DynamicFont" id=3]
-size = 8
-outline_color = Color( 0.945098, 0.945098, 0.945098, 1 )
-extra_spacing_char = 1
-font_data = ExtResource( 5 )
-
-[sub_resource type="Theme" id=4]
-default_font = SubResource( 3 )
-
 [node name="TitleScreen" type="Node2D"]
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_vertical_guides_": [ -61.0 ]
+}
 
 [node name="Title" type="Label" parent="."]
 margin_right = 312.0
@@ -83,6 +87,14 @@ text = "Dream Fire Reverie
 align = 1
 valign = 1
 autowrap = true
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 54.0
+margin_top = 201.0
+margin_right = 278.0
+margin_bottom = 215.0
+theme = SubResource( 4 )
+text = "Created (mostly) by Hill.E"
 
 [node name="ScrollBG" parent="." instance=ExtResource( 1 )]
 
@@ -121,12 +133,9 @@ __meta__ = {
 wait_time = 0.5
 autostart = true
 
-[node name="Label3" type="Label" parent="."]
-margin_left = 54.0
-margin_top = 201.0
-margin_right = 278.0
-margin_bottom = 215.0
-theme = SubResource( 4 )
-text = "Created (mostly) by HillE"
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -18.823
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

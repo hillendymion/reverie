@@ -95,40 +95,40 @@ texture = ExtResource( 6 )
 hframes = 4
 frame = 3
 
-[node name="KIcons" type="Sprite" parent="CanvasLayer"]
+[node name="Karrow" type="Sprite" parent="CanvasLayer"]
 position = Vector2( 97, 65 )
 texture = ExtResource( 7 )
 hframes = 16
 vframes = 22
 frame = 8
 
-[node name="KIcons2" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 117, 64 )
-texture = ExtResource( 7 )
-hframes = 16
-vframes = 22
-frame = 31
-
-[node name="KIcons3" type="Sprite" parent="CanvasLayer"]
+[node name="KWater" type="Sprite" parent="CanvasLayer"]
 position = Vector2( 136, 64 )
 texture = ExtResource( 7 )
 hframes = 16
 vframes = 22
-frame = 70
+frame = 17
 
-[node name="KIcons4" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 154, 64 )
+[node name="KWind" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 117, 64 )
+texture = ExtResource( 7 )
+hframes = 16
+vframes = 22
+frame = 30
+
+[node name="BCandy" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 155, 64 )
 texture = ExtResource( 7 )
 hframes = 16
 vframes = 22
 frame = 90
 
-[node name="KIcons5" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 172, 64 )
+[node name="KFire" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 174, 64 )
 texture = ExtResource( 7 )
 hframes = 16
 vframes = 22
-frame = 143
+frame = 84
 
 [node name="NinePatchRect2" parent="CanvasLayer" instance=ExtResource( 8 )]
 
@@ -198,7 +198,7 @@ vframes = 9
 [node name="SelectArrow" type="AnimatedSprite" parent="CanvasLayer"]
 position = Vector2( 96, 64 )
 frames = SubResource( 5 )
-frame = 1
+frame = 2
 playing = true
 __meta__ = {
 "_edit_lock_": true

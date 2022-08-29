@@ -16,6 +16,7 @@ extents = Vector2( 16, 8.5 )
 
 [node name="LVL_Hub" type="Node2D"]
 script = ExtResource( 7 )
+song = "res://Audio/Song/Dystopian.ogg"
 
 [node name="Cam2D" parent="." instance=ExtResource( 5 )]
 

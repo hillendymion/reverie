@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Objects/Plyr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/UI/Cam2D.tscn" type="PackedScene" id=2]
@@ -7,11 +7,14 @@
 [ext_resource path="res://SRC/Exit_Side.gd" type="Script" id=5]
 [ext_resource path="res://Objects/Backgrounds/ScrollBG1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Graphics/BG/SB_Generated1.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Rooms/LVL_Hub.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 17, 8.5 )
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 8 )
+song = "res://Audio/Song/Ambience_Bonfire_Loop.ogg"
 
 [node name="Cam2D" parent="." instance=ExtResource( 2 )]
 

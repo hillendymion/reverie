@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Objects/UI/Main_Menu_Theme.tres" type="Theme" id=1]
+[ext_resource path="res://Graphics/UI/BMeter.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/UI/UI_BarBack.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/UI/UI_Meter.png" type="Texture" id=4]
+
+[node name="Boss_Meter" type="Control"]
+margin_right = 1.0
+margin_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BM_Title" type="Label" parent="."]
+margin_left = 10.0
+margin_top = 196.0
+margin_right = 50.0
+margin_bottom = 210.0
+theme = ExtResource( 1 )
+text = "Boss:"
+
+[node name="HP_Bar" type="TextureProgress" parent="."]
+margin_left = 10.0
+margin_top = 209.0
+margin_right = 314.0
+margin_bottom = 225.0
+size_flags_horizontal = 3
+max_value = 300.0
+value = 300.0
+rounded = true
+texture_under = ExtResource( 3 )
+texture_over = ExtResource( 2 )
+texture_progress = ExtResource( 4 )
+texture_progress_offset = Vector2( 0, -1 )
+tint_under = Color( 0, 0, 0, 1 )
+tint_over = Color( 0.313726, 0.180392, 0.180392, 1 )
+tint_progress = Color( 1, 0.192157, 0.192157, 1 )
+stretch_margin_left = 3
+stretch_margin_top = 3
+stretch_margin_right = 3
+stretch_margin_bottom = 3

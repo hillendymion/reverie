@@ -1,58 +1,42 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Graphics/Effects/M484BulletCollection1.png" type="Texture" id=1]
 [ext_resource path="res://SRC/Fire_Bullet.gd" type="Script" id=2]
 
-[sub_resource type="Animation" id=1]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("M484BulletCollection1:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 10 ]
-}
-
-[sub_resource type="Animation" id=2]
-resource_name = "fire"
-length = 0.3
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("M484BulletCollection1:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 10, 11, 13 ]
-}
-
 [sub_resource type="CircleShape2D" id=3]
 radius = 3.0
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 160, 0, 16, 15 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 176, 0, 16, 15 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 208, 0, 16, 15 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 240, 0, 16, 15 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="Fire_Bullet" type="Area2D"]
 script = ExtResource( 2 )
 
-[node name="M484BulletCollection1" type="Sprite" parent="."]
-position = Vector2( -5, 1 )
-texture = ExtResource( 1 )
-hframes = 32
-vframes = 23
-frame = 10
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 1 )
-anims/fire = SubResource( 2 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 8 )
 
 [connection signal="area_entered" from="." to="." method="_on_Fire_Bullet_area_entered"]
