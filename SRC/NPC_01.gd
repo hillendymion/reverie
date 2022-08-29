@@ -6,7 +6,7 @@ onready var Talkarea = $TalkArea
 onready var stats = Player_Stats
 export var dialoguepath = "res://Dialog/" #default
 export var obtain = "waterbullet" #will handle obtaining items
-
+#MAybe add a var later that can add alternate dialogue. or add dialogue after certain event flags?
 
 func ready():
 	pass
@@ -14,6 +14,7 @@ func ready():
 
 func _on_TalkArea_body_entered(body: Node) -> void:
 	Player_Stats.Item_get = obtain
+
 	Player_Stats.Dialoguetext = dialoguepath
 	#I really want a position entered listener.
 
@@ -22,3 +23,5 @@ func _on_TalkArea_body_entered(body: Node) -> void:
 	print(Player_Stats.Dialoguetext)
 	print(Player_Stats.Item_get)
 	pass
+
+

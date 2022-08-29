@@ -1,11 +1,18 @@
-extends Control
+extends CanvasLayer
 	#get 
 onready var text = $Text #RihTextLabel is new to me.
 onready var namae = $Namae #NPC name. namae makes it unique 
 onready var adown = $Adown
 onready var timer = $Timer
 onready var buffer = $buffer
-onready var audio = $AudioStreamPlayer
+
+#SFX
+onready var abala = $Bala
+onready var aion = $Ion
+onready var adoggo = $Doggo
+onready var avm = $VM
+onready var aitem = $ItemGet
+
 export(float) var textspeed = 0.05 
 onready var dialoguepath = Player_Stats.Dialoguetext #I could totally gab this from the npc and chain it from them.
 #this was just an eport variable. 
@@ -61,9 +68,25 @@ func nextPhrase():
 	text.bbcode_text = dialog[phrasenum]["Text"]	
 	#bbcode  doesn't read the bbcode tags as text.
 	text.visible_characters = 0
-	if !dialog[phrasenum]["Audio"]:
-		if dialog[phrasenum]["Audio"] == "pickup":
-			audio.play()
+	var audios = {"Bala": abala, "Doggo": adoggo, "Ion": aion, "VM": avm, "ItemGet": aitem}
+	var akeys = audios.keys()
+	#This way is so hacky. audios will forloop it.
+	#I'm doing it this hacky way because forloops 
+	#are pissing me off right now. I'll fix it later
+	if str(dialog[phrasenum]["Audio"]) == akeys[0]:
+		abala.play()
+	elif str(dialog[phrasenum]["Audio"]) == akeys[1]:
+		adoggo.play()
+	elif str(dialog[phrasenum]["Audio"]) == akeys[2]:
+		aion.play()
+	elif str(dialog[phrasenum]["Audio"]) == akeys[3]:
+		avm.play()
+	elif str(dialog[phrasenum]["Audio"]) == akeys[4]:
+		aitem.play()
+	else:
+		print(str(dialog[phrasenum]["Audio"]))
+		print("key: "+str(akeys[0]))
+	 
 	
 	while text.visible_characters < len(text.text):
 		#scary ambiguity

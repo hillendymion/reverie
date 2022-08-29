@@ -37,6 +37,7 @@ const CandyBullet = preload("res://Objects/Bullets/WaterBullet.tscn") #replace w
 const WindBullet = preload("res://Objects/Bullets/WaterBullet.tscn") #replace with actual bullet
 #const SND_PlyrHurt = preload("res://Object/SND_PlayerHurt.tscn")
 
+#separation of concerns
 signal Player_Bullet_Fired(bullet, pos, direction)
 
 
@@ -90,7 +91,7 @@ func Move_State(delta):
 				stats.mwinDelay = false
 				InteractBuffer.start(.5)
 	if !$ShootBuffer.is_stopped():
-		print($ShootBuffer.time_left)
+		#print($ShootBuffer.time_left) #debug stuff.
 		shoot()
 
 
@@ -126,13 +127,13 @@ func shoot():
 		elif stats.Weapon == "WindBullet": #spread
 			bullet = WindBullet.instance();
 		#adds instance of bullet.
-		get_parent().add_child(bullet)
-		bullet.position = P_Target.global_position #this is awkward
-		bullet.rotation_degrees = rotation_degrees #trying this.
-		emit_signal("Player_Bullet_Fired", bullet, P_Target, vel)
+		
+		#bullet.rotation_degrees = rotation_degrees #trying this.
+		var bullet_Vel = P_Target.global_position - self.global_position
+		emit_signal("Player_Bullet_Fired", bullet, P_Target, bullet_Vel)
 		#call deffered?
 		#For some reason Y_Sort offsets this really badly.
-		bullet.vel = P_Target.global_position - self.global_position
+
 	
 func menu():
 	#activates menu TBD

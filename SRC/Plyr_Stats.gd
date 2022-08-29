@@ -2,6 +2,7 @@ extends Node2D
 #This is a persistant global variable holder. 
 #Contans player stats, dialogue, entrance settings. and other things talked between nodes.
 
+#player stats
 var HP = 8 setget changeHP, getHP
 var MaxHP = 8
 var Walk_Spd = 130 setget setWalkSpd, getWalkSpd
@@ -9,9 +10,15 @@ var Attack = 2 setget setAtt, getAtt
 var Defense = 1 setget setDef, getDef
 var Rate = 5 setget setRate, getRate #fire speed mayb I should apply this fractionally?
 var Weapon = "waterbullet" #Active Weapon.
+#Weapon mod stats.
+var Attackmod = 0
+var Ratemod = 0
+var Defmod = 0
 
-#trying this with a dictionary.
-var Weapons = {"Arrow": false, "waterbullet": false, "Firebullet": false, "WindBullet":false, "InkBullet":false} setget setWeapons, getWeapons
+
+#trying this with a dictionary. 
+#I should try this with a json file.
+var Weapons = {"Arrow": false, "waterbullet": false, "Firebullet": false, "WindBullet":false, "CandyBullet":false} setget setWeapons, getWeapons
 
 var Coins = 0 setget setCoins, getCoins
 #For doors
@@ -26,6 +33,7 @@ var Item_get = ""
 var Boss_FireHP = 800 setget setFireBossHP, getFireBossHP
 var Boss_IceHP = 1000 setget setIceBossHP, getIceBossHP
 
+onready var songhandler = $Song_Handler 
 
 #Setter getters.
 func changeHP(val):
@@ -92,8 +100,27 @@ func getFireBossHP():
 signal no_HP
 signal IceBossDead
 signal FireBossDead
+signal newsong(song)
+
+func newsong(song):
+
+	if song != str(songhandler.stream.resource_path):
+		print("old song: "+str(songhandler.stream.resource_path))
+		#spits out a weird number.
+		print("new song:"+song)
+		#songhandler.stop()
+		songhandler.stream = load(song)
+		songhandler.play()
+func stopsong():
+	#not sure if I'll need this, but have it here just in case.
+	songhandler.stop()
+
 
 func Game_Over():
 	#move character to bedroom.
 	Door_Name = "Enter3"
 	get_tree().change_scene("res://Objects/Rooms/LVL_Hub.tscn") #for now
+
+func WinGame():
+	#Move to room with cutscene and credits.
+	pass
