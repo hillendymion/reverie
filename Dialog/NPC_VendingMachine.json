@@ -1,0 +1,5 @@
+[
+	{"Name": "Vending Machine", "Text": "I'm a Vending Machine", "Audio": "VM"},
+	{"Name": "Vending Machine", "Text": "If I had more time I would be an item shop.", "Audio": "none"},
+	{"Name": " ", "Text": "Got Candy Bullet.", "Audio": "ItemGet"}
+]

@@ -1,4 +1,6 @@
 [
-	{"Name": "Bala", "Text": "I got a Squirt Gun. Check it Out.", "Audio": "none"},
-	{"Name": " ", "Text": "Obtained water gun.", "Audio": "pickup"}
+	{"Name": "Bala", "Text": "I have no idea whats going on.", "Audio": "Bala"},
+	{"Name": "Bala", "Text": "But I got a Squirt Gun. Check it Out.", "Audio": ""},
+	{"Name": " ", "Text": "Obtained water gun.", "Audio": "ItemGet"}
+
 ]

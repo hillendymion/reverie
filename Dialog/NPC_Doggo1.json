@@ -1,6 +1,6 @@
 [
-	{"Name": "Doggo", "Text": "Woof Woof Woof.", "Audio": "none"},
-	{"Name": "Doggo", "Text": "Woof Woof Woof Woof.", "Audio": "none"},
+	{"Name": "Doggo", "Text": "Woof Woof Woof.", "Audio": "Doggo"},
+	{"Name": "Doggo", "Text": "Woof Woof Woof Woof.", "Audio": "Doggo"},
 	{"Name": " ",     "Text": "(such riviting conversation...)", "Audio": "none"},
-	{"Name": " ",     "Text": "Got Candy Shot.", "Audio": "pickup"}
+	{"Name": " ",     "Text": "Got Wind Shot.", "Audio": "ItemGet"}
 ]
