@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/wind_extra_long.ogg-d11a592a88cbf7eadb36dd855400f44e.oggstr"
+
+[deps]
+
+source_file="res://Audio/Song/wind_extra_long.ogg"
+dest_files=[ "res://.import/wind_extra_long.ogg-d11a592a88cbf7eadb36dd855400f44e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

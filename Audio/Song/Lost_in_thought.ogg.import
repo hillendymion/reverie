@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Lost_in_thought.ogg-d550cd93a9e0c0db0f2a5531034fcb95.oggstr"
+
+[deps]
+
+source_file="res://Audio/Song/Lost_in_thought.ogg"
+dest_files=[ "res://.import/Lost_in_thought.ogg-d550cd93a9e0c0db0f2a5531034fcb95.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

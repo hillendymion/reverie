@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/city_background_long.ogg-92588ffd684483eff78c271a8468b468.oggstr"
+
+[deps]
+
+source_file="res://Audio/Song/city_background_long.ogg"
+dest_files=[ "res://.import/city_background_long.ogg-92588ffd684483eff78c271a8468b468.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

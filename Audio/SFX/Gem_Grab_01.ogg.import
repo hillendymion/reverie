@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Gem_Grab_01.ogg-6ce23b68bc8a2363074c5bc4642cfc61.oggstr"
+
+[deps]
+
+source_file="res://Audio/SFX/Gem_Grab_01.ogg"
+dest_files=[ "res://.import/Gem_Grab_01.ogg-6ce23b68bc8a2363074c5bc4642cfc61.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

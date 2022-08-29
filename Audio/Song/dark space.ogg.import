@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/dark space.ogg-30c0322616f645069a11412a9494d78c.oggstr"
+
+[deps]
+
+source_file="res://Audio/Song/dark space.ogg"
+dest_files=[ "res://.import/dark space.ogg-30c0322616f645069a11412a9494d78c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
